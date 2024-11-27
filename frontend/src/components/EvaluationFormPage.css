@@ -1,132 +1,152 @@
-/* Estilos generales para la página */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* Estilos para el header */
-.Cabecera header {
-  background-color: #850000f2;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
-
-.Cabecera header .nav-bar-general h1 {
-  margin: 1px;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-.Cabecera nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.Cabecera nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.Cabecera nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.Cabecera nav ul li a:hover {
-  background-color: #000560;
-  color: #fff;
-}
-
-/* Estilos para la imagen de fondo */
-.homepage-container {
-  background-image: url('./IMAGENES/Casona-2-scaled.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; 
-}
-
-/* Estilos para el formulario de evaluación */
-.evaluation-form-container {
+.document-management-container {
   width: 90%;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 30px auto;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.9); 
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1; 
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.evaluation-form-container h2 {
+.document-management-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 2rem;
+}
+
+.document-types-section {
+  margin-bottom: 30px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.document-types-section h3 {
   text-align: center;
   margin-bottom: 20px;
-  color: #343a40;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
   color: #495057;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  box-sizing: border-box;
+.document-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: #80bdff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.document-type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.form-group textarea {
-  min-height: 120px;
-  resize: vertical;
+.document-type-card:hover {
+  transform: translateY(-5px);
 }
 
-button[type='submit'] {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.document-type-card .document-icon {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.document-type-card h4 {
+  margin-bottom: 10px;
+  color: #343a40;
+}
+
+.document-type-card p {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.upload-section {
+  margin-bottom: 30px;
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.file-upload-label {
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  border: 2px dashed #ced4da;
+  color: #6c757d;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.15s ease-in-out;
-  display: block; 
-  margin: 0 auto; 
+  transition: all 0.3s ease;
 }
 
-button[type='submit']:hover {
+.file-upload-label:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.upload-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
   background-color: #218838;
 }
 
-/* Estilos del popup */
+.uploaded-documents-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.uploaded-documents-section h3 {
+  margin-bottom: 15px;
+  color: #495057;
+}
+
+.uploaded-files-list {
+  list-style: none;
+  padding: 0;
+}
+
+.uploaded-file-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.uploaded-file-item svg {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.no-documents {
+  text-align: center;
+  color: #6c757d;
+  padding: 20px;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -137,55 +157,29 @@ button[type='submit']:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .popup-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
 }
 
 .popup-content h2 {
-  margin-bottom: 10px;
   color: #28a745;
+  margin-bottom: 15px;
 }
 
 .popup-content button {
   background-color: #007bff;
-  color: #fff;
-  padding: 8px 15px;
+  color: white;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.15s ease-in-out;
-}
-
-.popup-content button:hover {
-  background-color: #0056b3;
-}
-
-/* Media Queries para responsividad */
-@media (max-width: 768px) {
-  .evaluation-form-container {
-    max-width: 95%; 
-  }
-}
-
-@media (max-width: 500px) {
-  .Cabecera nav ul li {
-    display: block; 
-    margin: 10px 0;
-  }
-
-  .evaluation-form-container {
-    padding: 20px; 
-  }
-
-  .popup-content {
-    padding: 15px; 
-  }
+  margin-top: 15px;
 }

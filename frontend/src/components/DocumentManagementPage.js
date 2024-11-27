@@ -3,6 +3,7 @@ import axios from "axios";
 import "./DocumentManagementPage.css";
 import Header from "./Header";
 import casonaImage from "./IMAGENES/Casona-2-scaled.jpg";
+import { FileText, FileSpreadsheet, Mail, Clipboard } from 'lucide-react';
 
 const DocumentManagementPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -10,17 +11,40 @@ const DocumentManagementPage = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [error, setError] = useState(null);
 
+  const documentTypes = [
+    { 
+      icon: <FileText size={40} className="document-icon"/>, 
+      name: "Informes de Prácticas", 
+      description: "Documentos que resumen tu experiencia y aprendizajes" 
+    },
+    { 
+      icon: <Mail size={40} className="document-icon"/>, 
+      name: "Cartas de Recomendación", 
+      description: "Cartas de tu empleador o supervisor que avalan tu desempeño" 
+    },
+    { 
+      icon: <Clipboard size={40} className="document-icon"/>, 
+      name: "Documentos de Evaluación", 
+      description: "Formatos de evaluación completados durante tus prácticas" 
+    },
+    { 
+      icon: <FileSpreadsheet size={40} className="document-icon"/>, 
+      name: "Otros Documentos", 
+      description: "Cualquier otro documento relevante de tus prácticas" 
+    }
+  ];
+
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
 
   const handleUpload = async (event) => {
-    event.preventDefault(); // Evita que la página se recargue
+    event.preventDefault();
     if (selectedFile) {
       try {
         const formData = new FormData();
         formData.append("documento", selectedFile);
-        formData.append("boton_subir", "subir"); // Agrega el campo boton_subir
+        formData.append("boton_subir", "subir");
 
         const response = await axios.post(
           "http://localhost:3900/api/subirdoc/subir", 
@@ -32,7 +56,6 @@ const DocumentManagementPage = () => {
           }
         );
 
-        // Actualiza la lista de archivos subidos si la solicitud fue exitosa
         setUploadedFiles([
           ...uploadedFiles,
           response.data.documento.seleccion_archivo,
@@ -40,7 +63,6 @@ const DocumentManagementPage = () => {
         setSelectedFile(null);
         setShowPopup(true);
       } catch (error) {
-        // Maneja el error y actualiza el estado de error
         console.error("Error al subir el documento:", error);
         setError(
           error.response?.data?.mensaje || "Error al subir el documento"
@@ -52,61 +74,76 @@ const DocumentManagementPage = () => {
   };
 
   const handleClosePopup = () => {
-    setShowPopup(false); // Oculta el popup de confirmación
+    setShowPopup(false);
   };
 
   return (
     <div className="Cabecera">
-      <Header />{" "}
-      {/* Renderiza el componente Header */}
+      <Header />
       <div
         className="homepage-container"
         style={{ backgroundImage: `url(${casonaImage})` }}
       >
-        {/* Contenedor principal con la imagen de fondo */}
         <div className="document-management-container">
-          {/* Contenedor de la sección de gestión de documentos */}
-          <h2>Gestión de Documentos</h2>
+          <h2>Gestión de Documentos de Prácticas</h2>
+          
+          <div className="document-types-section">
+            <h3>Tipos de Documentos Aceptados</h3>
+            <div className="document-type-grid">
+              {documentTypes.map((type, index) => (
+                <div key={index} className="document-type-card">
+                  {type.icon}
+                  <h4>{type.name}</h4>
+                  <p>{type.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {error && (
             <div className="error-message">{error}</div>
           )}
-          {/* Muestra el mensaje de error si existe */}
+          
           <div className="upload-section">
-            {}
-            <form onSubmit={handleUpload}> {/* Agrega un formulario */}
-              <input type="submit" name="boton_subir" value="Subir" className="upload-button" />
-              <label htmlFor="file-upload" className="file-upload-label">
-                Seleccionar Archivo
-              </label>
-              <input
-                type="file"
-                id="file-upload"
-                className="file-upload-input"
-                onChange={handleFileChange}
-              />
+            <form onSubmit={handleUpload}>
+              <div className="file-upload-container">
+                <label htmlFor="file-upload" className="file-upload-label">
+                  {selectedFile ? selectedFile.name : "Seleccionar Archivo"}
+                </label>
+                <input
+                  type="file"
+                  id="file-upload"
+                  className="file-upload-input"
+                  onChange={handleFileChange}
+                />
+                <button type="submit" className="upload-button">
+                  Subir Documento
+                </button>
+              </div>
             </form>
           </div>
 
-          <h3>Documentos Subidos</h3>
-          {}
-          {uploadedFiles.length === 0 ? (
-            <p className="no-documents">No hay documentos subidos.</p>
-          ) : (
-            <ul className="uploaded-files-list">
-              {uploadedFiles.map((fileName, index) => (
-                <li key={index}>{fileName}</li> 
-              ))}
-            </ul>
-          )}
+          <div className="uploaded-documents-section">
+            <h3>Documentos Subidos</h3>
+            {uploadedFiles.length === 0 ? (
+              <p className="no-documents">Aún no has subido documentos.</p>
+            ) : (
+              <ul className="uploaded-files-list">
+                {uploadedFiles.map((fileName, index) => (
+                  <li key={index} className="uploaded-file-item">
+                    <FileText size={20} /> {fileName}
+                  </li> 
+                ))}
+              </ul>
+            )}
+          </div>
 
-          {/* Renderiza el popup condicionalmente si showPopup es true */}
           {showPopup && (
             <div className="popup">
               <div className="popup-content">
-                <p>Documento cargado exitosamente.</p>
-
-                <button onClick={handleClosePopup}>Cerrar</button>{" "}
-                {/* Botón para cerrar el popup */}
+                <h2>Documento Cargado</h2>
+                <p>El documento se ha subido exitosamente.</p>
+                <button onClick={handleClosePopup}>Cerrar</button>
               </div>
             </div>
           )}
