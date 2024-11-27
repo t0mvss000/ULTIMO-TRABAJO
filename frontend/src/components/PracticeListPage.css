@@ -1,0 +1,44 @@
+.practice-list-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffffb3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+   
+  .practice-list-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+   
+  .practice-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+   
+  .practice-list-container th, 
+  .practice-list-container td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+   
+  .practice-list-container th {
+    background-color: #f4f4f4;
+  }
+   
+  .add-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #000dff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    text-align: center;
+  }
+   
+  .add-button:hover {
+    background-color: #000560;
+  }

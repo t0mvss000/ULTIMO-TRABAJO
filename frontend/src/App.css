@@ -1,0 +1,73 @@
+body {
+  background-image: url(./components/IMAGENES/Casona-2-scaled.jpg); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+
+}
+ 
+.app-container { /* Puedes usar una clase para contener toda la aplicación */
+  display: flex; 
+  flex-direction: column; /* Los elementos se apilan verticalmente */
+  min-height: 100vh; /* La altura mínima será la del viewport */
+}
+ 
+header {
+  background-color: #850000f2;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  /* Para que el header ocupe solo el espacio necesario */
+  width: 100%; 
+}
+ 
+header .nav-bar-general h1 {
+  margin: 1px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+ 
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+ 
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px; /* Espaciado interno para los enlaces */
+  border-radius: 5px; /* Bordes redondeados para los enlaces */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+ 
+nav ul li a:hover{
+  background-color: #000560;
+  color: #fff;
+}
+ 
+/* Estilos para el contenido principal */
+main {
+  flex-grow: 1; /* El contenido principal ocupará el espacio disponible */
+  padding: 20px;
+  background-image: url('/public/IMAGENES/Casona-2-scaled.jpg'); /* Ruta a tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+}
+ 
+/* Estilos para el pie de página */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  /* Para que el footer se mantenga en la parte inferior */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

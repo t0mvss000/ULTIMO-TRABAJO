@@ -1,0 +1,82 @@
+.practice-detail-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffffb3;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .practice-detail-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  .practice-details {
+    margin-bottom: 25px;
+  }
+  
+  .detail-row {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+  
+  .detail-row strong {
+    width: 200px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .detail-row span,
+  .detail-row p {
+    flex-grow: 1;
+    color: #333;
+  }
+  
+  .detail-row.description {
+    flex-direction: column;
+  }
+  
+  .detail-row.description strong {
+    margin-bottom: 10px;
+  }
+  
+  .practice-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .practice-actions a,
+  .practice-actions button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+    display: none;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .back-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .error-container {
+    text-align: center;
+    margin-top: 50px;
+  }

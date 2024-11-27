@@ -1,0 +1,37 @@
+/* Estilos para el header */
+header {
+    background-color: #850000f2;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center; 
+  }
+  
+  header .nav-bar-general h1 {
+    margin: 1px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  nav ul li a:hover {
+    background-color: #000560;
+    color: #fff;
+  }
